@@ -5,3 +5,11 @@ __pycache__/
 .vscode/
 notes/
 chroma_db/
+
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+.chroma/
+
+*.db
