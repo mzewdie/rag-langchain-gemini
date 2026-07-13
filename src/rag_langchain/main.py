@@ -4,14 +4,39 @@ from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_community.document_loaders import PyPDFLoader
 import logging
+from src.rag_langchain.utils.logging_config import configure_logging
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
 
 def main():
     
-    logging.basicConfig(level=logging.INFO,
-                        format="%(levelname)s: %(message)s",
-                        filename="logs/rag-logs.log")
-
+    
+    configure_logging()
     logger = logging.getLogger(__name__)
+    logger.info("Test")
+    logger.debug("This is a DEBUG message.")
+    logger.info("This is an INFO message.")
+    
+    """
+    
+Logging in den anderen Modulen: In anderen Modulen
+
+Nehmen wir an, wir erstellen später pdf_loader.py.
+
+Dort genügt:
+
+import logging
+
+logger = logging.getLogger(__name__)
+
+Mehr nicht.
+
+Du musst nicht in jeder Datei configure_logging() aufrufen.
+
+Das passiert genau einmal, wenn die Anwendung startet.
+
+    
+    """
     
     # Load environment variables from .env
     load_dotenv()
@@ -50,11 +75,16 @@ def main():
     print(doc.page_content)
     print(doc.metadata) """
     
+    
+    
     for doc in documents:
         logger.info("-" * 40)
         logger.info(f"Page: {doc.metadata['page']}")
-        logger.info(doc.page_content[:200])
-
-
+        logger.info(doc.page_content[:400])
+        
+    
+    
+    
+    
 if __name__ == "__main__":
     main()
