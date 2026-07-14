@@ -18,6 +18,12 @@ def configure_logging() -> None:
 
     # File
     file_handler = logging.FileHandler(log_dir / "rag.log")
+    """ file_handler = logging.FileHandler(log_dir / "rag.log",
+                                       mode="w",          # Overwrite the log file on each application start
+                                       encoding="utf-8",) """
+    #mode="w" → overwrite the log file each time the application starts.
+    #mode="a" (the default) → append to the existing log file.
+    
     file_handler.setLevel(logging.DEBUG)
     file_handler.setFormatter(formatter)
 
