@@ -19,3 +19,6 @@ class LLMService():
         
     def ask(self,question):
         return self.llm.invoke(question)  
+    
+    def invoke(self,prompt: str):
+        return self.llm.invoke(prompt)

@@ -68,7 +68,7 @@ Das passiert genau einmal, wenn die Anwendung startet.
 
     logger.info(f"loading PDF {pdf_file}")
     documents = loader.load()
-    print(f"Number of documents {len(documents)}")
+    
     
     #inspect the first one
     """ doc = documents[0]
