@@ -17,7 +17,7 @@ def configure_logging() -> None:
     console_handler.setFormatter(formatter)
 
     # File
-    file_handler = logging.FileHandler(log_dir / "rag.log")
+    file_handler = logging.FileHandler(log_dir/"doc_analyser_logs.log")
     """ file_handler = logging.FileHandler(log_dir / "rag.log",
                                        mode="w",          # Overwrite the log file on each application start
                                        encoding="utf-8",) """
@@ -25,6 +25,7 @@ def configure_logging() -> None:
     #mode="a" (the default) → append to the existing log file.
     
     file_handler.setLevel(logging.DEBUG)
+    #file_handler.setLevel(logging.INFO)
     file_handler.setFormatter(formatter)
 
     logger = logging.getLogger()

@@ -6,7 +6,7 @@ from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_chroma import Chroma
 import logging
-from src.rag_langchain_old.utils.logging_config import configure_logging
+from common.utils.logging_config import configure_logging
 #from pathlib import Path
 import re
 from src.exceptions.exceptions import EmbeddingQuotaExceededError
