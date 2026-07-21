@@ -1,5 +1,5 @@
 
-from src.llm.llm_service import LLMService
+from common.llm.llm_service_v1 import LLMService
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_core.documents import Document

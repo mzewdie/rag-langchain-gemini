@@ -1,7 +1,7 @@
 import os
 import sys
 import streamlit as st
-from src.llm.llm_service import LLMService
+from common.llm.llm_service_v1 import LLMService
 
     
 st.write("Communication with AI")

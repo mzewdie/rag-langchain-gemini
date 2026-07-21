@@ -2,7 +2,10 @@ import logging
 from src.common.document.pdf_loader import PDFLoader
 from pathlib import Path
 from src.common.utils.logging_config import configure_logging
-
+from src.document_analyzer.summary_service import SummaryService
+from src.document_analyzer.document_analysis_orchestrator import DocumentAnalysisOrchestrator
+from src.common.llm.llm_configuration import LLMConfiguration
+from src.common.llm.llm_factory import LLMFactory
 
 
 
@@ -31,3 +34,14 @@ logger.info("END") """
 
 print("printing: {analysis_document}")
 #logger.info(analysis_document)
+
+summary_service=SummaryService()
+action="summary"
+document_analysis_orchestrator = DocumentAnalysisOrchestrator(summary_service=summary_service)
+result=document_analysis_orchestrator.execute(document=analysis_document,action=action)
+
+#LLM Service
+llm_configuration = LLMConfiguration("gemini","gemini-2.5-flash")
+#llm_factory= LLMFactory()
+llm_service=LLMFactory.create(llm_configuration)
+llm_service.invoke("What is Python?")

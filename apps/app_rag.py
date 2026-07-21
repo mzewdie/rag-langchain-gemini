@@ -1,7 +1,7 @@
 import streamlit as st 
 import tempfile
 from src.rag.rag_service import RAGService
-from src.llm.llm_service import LLMService
+from common.llm.llm_service_v1 import LLMService
 
 st.write("Welcome To RAG Service")
 
