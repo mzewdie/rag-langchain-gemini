@@ -16,11 +16,7 @@ class ConfigurationLoader:
 
     def __init__(
         self,
-        #llm: LLMConfiguration,
-        #rag: RAGConfiguration,
         configuration: Configuration,):
-        #self.llm = llm
-        #self.rag = rag
         self.configuration=configuration
 
     @classmethod
@@ -44,12 +40,4 @@ class ConfigurationLoader:
         configuration=Configuration(llm=llm_configuration,
                                     rag=rag_configuration)
  
-        """return cls(
-            configuration
-        ) """
-        
-        return Configuration(
-            llm=llm_configuration,
-            rag=rag_configuration,
-        )
-        
+        return configuration

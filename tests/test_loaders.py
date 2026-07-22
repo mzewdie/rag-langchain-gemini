@@ -42,13 +42,7 @@ action="summary"
 document_analysis_orchestrator = DocumentAnalysisOrchestrator(summary_service=summary_service)
 result=document_analysis_orchestrator.execute(document=analysis_document,action=action)
 
-#LLM Service
-#llm_configuration = LLMConfiguration("gemini","gemini-2.5-flash")
-#llm_configuration = Configuration.load().llm
-#print(llm_configuration)
-#llm_factory= LLMFactory()
-#configuration_loader=ConfigurationLoader.load()
-#llm_service=LLMFactory.create(configuration_loader.configuration.llm)
+#using the configuration
 configuration = ConfigurationLoader.load()
 llm_service=LLMFactory.create(configuration.llm)
 llm_service.invoke("What is Python?")
