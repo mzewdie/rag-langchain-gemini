@@ -6,7 +6,9 @@ from src.document_analyzer.summary_service import SummaryService
 from src.document_analyzer.document_analysis_orchestrator import DocumentAnalysisOrchestrator
 from src.common.llm.llm_configuration import LLMConfiguration
 from src.common.llm.llm_factory import LLMFactory
-
+#from src.common.config import Configuration
+from src.common.config.configuration import Configuration
+from src.common.config.configuration_loader import ConfigurationLoader
 
 
 configure_logging()
@@ -41,7 +43,12 @@ document_analysis_orchestrator = DocumentAnalysisOrchestrator(summary_service=su
 result=document_analysis_orchestrator.execute(document=analysis_document,action=action)
 
 #LLM Service
-llm_configuration = LLMConfiguration("gemini","gemini-2.5-flash")
+#llm_configuration = LLMConfiguration("gemini","gemini-2.5-flash")
+#llm_configuration = Configuration.load().llm
+#print(llm_configuration)
 #llm_factory= LLMFactory()
-llm_service=LLMFactory.create(llm_configuration)
+#configuration_loader=ConfigurationLoader.load()
+#llm_service=LLMFactory.create(configuration_loader.configuration.llm)
+configuration = ConfigurationLoader.load()
+llm_service=LLMFactory.create(configuration.llm)
 llm_service.invoke("What is Python?")

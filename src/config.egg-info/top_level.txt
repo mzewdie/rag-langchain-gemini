@@ -1,5 +1,0 @@
-config
-langchain_rag
-llm
-rag
-rag_langchain_old

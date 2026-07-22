@@ -1,0 +1,9 @@
+#enter here the provider and its model
+
+llm:
+  provider: gemini
+  model: gemini-2.5-flash
+
+rag:
+  provider: gemini
+  model: rag_model  
