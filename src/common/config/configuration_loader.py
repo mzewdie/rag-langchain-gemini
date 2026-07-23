@@ -19,10 +19,9 @@ class ConfigurationLoader:
         configuration: Configuration,):
         self.configuration=configuration
 
-    @classmethod
+    @staticmethod
     def load(
-        cls,
-        path: str = "configs/config.yaml"):
+        path: str = "configs/config.yaml")  -> Configuration:
 
         with open(path) as file:
             data = yaml.safe_load(file)
