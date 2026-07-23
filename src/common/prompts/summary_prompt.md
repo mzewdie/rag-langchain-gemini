@@ -44,4 +44,4 @@ Rules:
 
 Document:
 
-{{document.content}}
+{{document}}

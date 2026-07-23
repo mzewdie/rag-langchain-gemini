@@ -1,5 +1,6 @@
 from src.common.llm.llm_service import LLMService
 import os
+import logging
 from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
 
@@ -9,7 +10,9 @@ load_dotenv()
 
 # Read the API key
 api_key = os.getenv("GEMINI_API_KEY")
-#model = "gemini-2.5-flash"
+
+llm_debug_logger = logging.getLogger("llm_debug")
+
 
 
 class GeminiLLMService(LLMService):

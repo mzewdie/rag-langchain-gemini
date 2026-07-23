@@ -23,7 +23,7 @@ class PDFLoader:
         metadata={}
         metadata["total_pages_loaded"] = len(loadedPDF)
         
-        analysis_document = AnalysisDocument(filename=pdffile.name,
+        analysis_document = AnalysisDocument(filename=pdffile,
                                     content=content,
                                     document_type="pdf",
                                     pages=len(loadedPDF),

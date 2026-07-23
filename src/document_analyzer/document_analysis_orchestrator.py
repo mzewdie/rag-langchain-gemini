@@ -9,6 +9,9 @@ from src.document_analyzer.action import Action
 
 logger = logging.getLogger(__name__)
 
+llm_debug_logger = logging.getLogger("llm_debug")
+
+
 class DocumentAnalysisOrchestrator:
     
     def __init__(self,
@@ -41,10 +44,14 @@ class DocumentAnalysisOrchestrator:
                     f"Unsupported action: {action}")
                 
                 
-    def __summarize(self,document) -> str:
+    def __summarize(self,document: AnalysisDocument) -> str:
         prompt=self.summary_service.generate_prompt(document=document)
         
-        response: str=self.llm_service.invoke(prompt)
+        logger.info(f"Prompt is: {prompt}")
+        
+        llm_debug_logger.info(f"Document length: {len(document.content)}")
+        llm_debug_logger.debug(f"Prompt:\n{document.content[:500]}")
+        response: str = self.llm_service.invoke(prompt)
         return response
 
     

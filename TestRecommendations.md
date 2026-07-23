@@ -161,3 +161,14 @@ Expected topics:
 - Exceptions
 
 Over time, this will become a valuable reference. If you later change prompts or switch from Gemini to Ollama, you can compare how each model performs on the same documents and see whether your changes improved the results.
+
+###########################################
+What to debug:
+1. Was the document loaded correctly?
+2. Was the prompt generated correctly?
+3. Was the placeholder replaced?
+4. Is the prompt length reasonable?
+5. Was the correct model used?
+6. What exactly was sent to the LLM?
+7. What exactly was returned?
+######################################

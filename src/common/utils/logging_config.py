@@ -18,9 +18,9 @@ def configure_logging() -> None:
 
     # File
     file_handler = logging.FileHandler(log_dir/"doc_analyser_logs.log")
-    """ file_handler = logging.FileHandler(log_dir / "rag.log",
+    file_handler = logging.FileHandler(log_dir/"doc_analyser_logs.log",
                                        mode="w",          # Overwrite the log file on each application start
-                                       encoding="utf-8",) """
+                                       encoding="utf-8",) 
     #mode="w" → overwrite the log file each time the application starts.
     #mode="a" (the default) → append to the existing log file.
     
@@ -34,3 +34,15 @@ def configure_logging() -> None:
     logger.handlers.clear()      # Remove existing handlers
     logger.addHandler(console_handler)
     logger.addHandler(file_handler)
+    
+    
+    #llm debugger
+    llm_debug_logger = logging.getLogger("llm_debug")
+    llm_handler = logging.FileHandler("logs/llm_debug.log",
+                                      mode="w",         
+                                      encoding="utf-8",)
+    
+    llm_handler.setLevel(logging.DEBUG)
+    llm_debug_logger = logging.getLogger("llm_debug")
+    llm_debug_logger.setLevel(logging.DEBUG)
+    llm_debug_logger.addHandler(llm_handler)
